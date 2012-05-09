@@ -1,0 +1,63 @@
+{
+	"autocomplete": false,
+	"scanAll": true,
+	"options": [
+		{
+			"short": "f",
+			"long": [ "flag", "flagged-option" ],
+			"help": "Test option",
+			"name": null
+		},
+		{
+			"short": "r",
+			"long": null,
+			"help": "Second test option",
+			"argumentName": "ARG",
+			"argumentRequired": true,
+			"name": null
+		},
+		{
+			"short": null,
+			"long": "opt",
+			"help": "Third test option",
+			"argumentName": "Op",
+			"argumentRequired": false,
+			"name": null
+		},
+		{
+			"short": "d",
+			"long": "hidden-option",
+			"help": null,
+			"name": "hidden"
+		}
+	],
+	"tests": [
+		{
+			"parse": [],
+			"getopt": [],
+			"unparsed": []
+		},
+		{
+			"parse": [ "-d" ],
+			"getopt": {
+				"d": false
+			},
+			"unparsed": []
+		},
+		{
+			"parse": [ "-ffr=one", "-r", "two", "--flagged-option=yellow" ],
+			"getopt": {
+				"f": [ false, false ],
+				"r": [ "one", "two" ],
+				"flagged-option": false
+			},
+			"unparsed": [ "=yellow" ]
+		}
+	],
+	"help": [
+		"-f, --flag, --flagged-option",
+		"                Test option",
+		"-r ARG          Second test option",
+		"--opt [Op]      Third test option"
+	]
+}
