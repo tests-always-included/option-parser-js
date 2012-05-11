@@ -1,0 +1,40 @@
+{
+	"autocomplete": false,
+	"scanAll": true,
+	"options": [
+		{
+			"short": [ "f", "F" ],
+			"long": [ "flag", "flagged-option" ],
+			"help": "Test option that can be used many ways",
+			"name": null
+		},
+		{
+			"short": "r",
+			"long": "rubber-duckie-wrapping",
+			"help": "Second test option, but let us make the help message super duper long so that it wraps around and around.  I think a couple times (at a minimum) would be sufficient.",
+			"argumentName": "ARG",
+			"argumentRequired": true,
+			"name": null
+		},
+		{
+			"short": "t",
+			"long": null,
+			"help": "This option should just barely wrap-around-to-the-next-line-but-it-should-chop-this-super-long-word up.",
+			"argumentName": "ARG",
+			"argumentRequired": false,
+			"name": null
+		}
+	],
+	"tests": [
+	],
+	"help": [
+		"-f, -F, --flag, --flagged-option",
+		"                Test option that can be used many ways",
+		"-r, --rubber-duckie-wrapping ARG",
+		"                Second test option, but let us make the help message super",
+		"                duper long so that it wraps around and around.  I think a",
+		"                couple times (at a minimum) would be sufficient.",
+		"-t[=ARG]        This option should just barely wrap-around-to-the-next-line-",
+		"                but-it-should-chop-this-super-long-word up."
+	]
+}

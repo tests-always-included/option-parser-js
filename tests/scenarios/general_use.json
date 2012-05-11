@@ -4,7 +4,7 @@
 	"options": [
 		{
 			"short": "f",
-			"long": [ "flag", "flagged-option" ],
+			"long": "flag",
 			"help": "Test option",
 			"name": null
 		},
@@ -34,7 +34,7 @@
 	"tests": [
 		{
 			"parse": [],
-			"getopt": [],
+			"getopt": {},
 			"unparsed": []
 		},
 		{
@@ -45,19 +45,18 @@
 			"unparsed": []
 		},
 		{
-			"parse": [ "-ffr=one", "-r", "two", "--flagged-option=yellow" ],
+			"parse": [ "-ffr=one", "-r", "two", "--flag=yellow" ],
 			"getopt": {
 				"f": [ false, false ],
 				"r": [ "one", "two" ],
-				"flagged-option": false
+				"flag": false
 			},
 			"unparsed": [ "=yellow" ]
 		}
 	],
 	"help": [
-		"-f, --flag, --flagged-option",
-		"                Test option",
+		"-f, --flag      Test option",
 		"-r ARG          Second test option",
-		"--opt [Op]      Third test option"
+		"--opt[=Op]      Third test option"
 	]
 }

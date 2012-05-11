@@ -106,7 +106,7 @@ class OptionParameter {
 		if ($this->argumentRequired == self::ARGUMENT_REQUIRED) {
 			$buffer .= ' ' . $this->argumentName;
 		} elseif ($this->argumentRequired == self::ARGUMENT_OPTIONAL) {
-			$buffer .= ' [' . $this->argumentName . ']';
+			$buffer .= '[=' . $this->argumentName . ']';
 		}
 
 		$help = $this->wrap(str_repeat(' ', $pad) . $this->optionHelp, $pad, $width);
@@ -191,6 +191,7 @@ class OptionParameter {
 	public function wrap($str, $pad, $width) {
 		$lines = array();
 		$str = rtrim($str);
+		$spaces = str_repeat(' ', $pad);
 
 		while (strlen($str)) {
 			$newline = false;
@@ -217,8 +218,12 @@ class OptionParameter {
 				$lines[] = rtrim($line);
 				$str = substr($str, strlen($line));
 			}
+
+			if (strlen($str)) {
+				$str = $spaces . $str;
+			}
 		}
 
-		return implode("\n" . str_repeat(' ', $pad), $lines) . "\n";
+		return implode("\n", $lines) . "\n";
 	}
 }
