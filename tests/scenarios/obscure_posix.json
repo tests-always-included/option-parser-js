@@ -3,22 +3,22 @@
 	"scanAll": true,
 	"options": [
 		{
-			"short": "f",
-			"long": null,
+			"shortOptions": "f",
+			"longOptions": null,
 			"help": "No argument",
 			"name": null
 		},
 		{
-			"short": "r",
-			"long": null,
+			"shortOptions": "r",
+			"longOptions": null,
 			"help": "Required argument",
 			"argumentName": "ARG",
 			"argumentRequired": true,
 			"name": null
 		},
 		{
-			"short": "o",
-			"long": null,
+			"shortOptions": "o",
+			"longOptions": null,
 			"help": "Optional argument",
 			"argumentName": "ARG",
 			"argumentRequired": false,

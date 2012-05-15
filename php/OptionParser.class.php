@@ -10,7 +10,7 @@ class OptionParser {
 	protected $programNameParsed = null;
 
 	public function __get($name) {
-		return $this->get($name)->value;
+		return $this->get($name);
 	}
 
 	public function addOption($short, $long, $helpMessage = null, $name = null) {
@@ -49,6 +49,14 @@ class OptionParser {
 		return $out;
 	}
 
+	public function getValue($name) {
+		if (! $this->parametersByName[$name]) {
+			throw new Exception('No parameter named ' . $name);
+		}
+
+		return $this->parametersByName[$name]->value();
+	}
+
 	public function help() {
 		$out = '';
 
@@ -75,9 +83,14 @@ class OptionParser {
 		if (is_null($options)) {
 			$options = $GLOBALS['argv'];
 
-			// First entry will be 'php'
-			array_shift($options);
-			$this->programNameParsed = array_shift($options);
+			// First entry may be 'php'
+			$cmd = array_shift($options);
+
+			if (preg_match('/^(.*\/)?php5?(\.exe)?$/', $cmd)) {
+				$cmd .= ' ' . array_shift($options);
+			}
+
+			$this->programNameParsed = $cmd;
 		}
 
 		if (! is_array($options)) {
@@ -103,7 +116,11 @@ class OptionParser {
 
 				if (preg_match('/^([^=]+)=(.*)$/', $arg, $matches)) {
 					$arg = $matches[1];
-					$value = $matches[2];
+					$value = '';
+
+					if (count($matches) > 2) {
+						$value = $matches[2];
+					}
 				}
 
 				// Match a regular argument
@@ -115,26 +132,31 @@ class OptionParser {
 
 				// Autocomplete if possible
 				if (! $found && $this->doAutocomplete) {
-					$best = 0;
-					$bestName = null;
+					$suggestions = array();
 
 					foreach ($this->parameters as $p) {
-						foreach ($p->matchAutocomplete($arg) as $score => $name) {
-							if ($score > $best) {
-								$best = $score;
-								$bestName = $name;
-								$found = $name;
-							} elseif ($score == $best) {
-								// A tie
-								$found = null;
-							}
+						foreach ($p->matchAutocomplete($arg) as $name => $obj) {
+							$suggestions[$name] = $obj;
 						}
 					}
 
-					if ($found) {
-						$arg = $bestName;
+					if (count($suggestions) == 1) {
+						$arg = array_keys($suggestions);
+						$arg = reset($arg);
+						$found = $suggestions[$arg];
 					}
 				}
+
+				// Wildcard if possible
+				if (! $found) {
+					foreach ($this->parameters as $p) {
+						if ($p->matchWildcard()) {
+							$found = $p;
+						}
+					}
+				}
+
+				array_shift($options);
 
 				if (! $found) {
 					$reconstructed = '--' . $arg;
@@ -150,7 +172,6 @@ class OptionParser {
 							// Must not use "=" syntax
 							// Treat it as another paramter if found
 							$found->handleArgument($arg);
-							array_shift($options);
 
 							if (! is_null($value)) {
 								array_unshift($options, '=' . $value);
@@ -158,10 +179,8 @@ class OptionParser {
 
 							break;
 
-						case OptionParameter::ARGUMENT_REQURED:
+						case OptionParameter::ARGUMENT_REQUIRED:
 							// Can use "=" syntax or next argument
-							array_shift($options);
-
 							if (is_null($value)) {
 								if (! count($options)) {
 									throw new Exception('Value needed for --' . $arg);
@@ -176,7 +195,6 @@ class OptionParser {
 						default:  // Optional
 							// Must use "=" syntax
 							$found->handleArgument($arg, $value);
-							array_shift($options);
 							break;
 					}
 				}

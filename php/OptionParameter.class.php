@@ -4,15 +4,15 @@ class OptionParameter {
 	const ARGUMENT_NONE = 0;
 	const ARGUMENT_REQUIRED = 1;
 	const ARGUMENT_OPTIONAL = 2;
-	protected $action = null;
+	protected $actionCallback = null;
 	protected $argumentName = null;
 	protected $argumentRequired = self::ARGUMENT_NONE;
 	protected $getoptFormat = array();
 	protected $optionHelp = null;
 	protected $optionLong = array();
 	protected $optionShort = array();
-	protected $validation = null;
-	protected $values = array();
+	protected $validationCallback = null;
+	protected $valuesParsed = array();
 
 	public function __construct($short, $long, $message = null) {
 		if ($short) {
@@ -30,7 +30,7 @@ class OptionParameter {
 
 	public function action($runthis) {
 		$this->validateCallback($runthis);
-		$this->action = $runthis;
+		$this->actionCallback = $runthis;
 		return $this;
 	}
 
@@ -47,12 +47,12 @@ class OptionParameter {
 	}
 
 	public function count() {
-		return count($this->values);
+		return count($this->valuesParsed);
 	}
 
 	public function handleArgument($option, $value = null) {
-		if (! is_null($value) && $this->validation) {
-			$result = call_user_func($this->validation, $value);
+		if (! is_null($value) && $this->validationCallback) {
+			$result = call_user_func($this->validationCallback, $value);
 
 			if (! is_null($result)) {
 				$exception = new Exception($result);
@@ -61,7 +61,11 @@ class OptionParameter {
 			}
 		}
 
-		$this->values[] = $value;
+		if ($this->actionCallback) {
+			call_user_func($this->actionCallback, $value);
+		}
+
+		$this->valuesParsed[] = $value;
 		$getoptValue = false;
 
 		if ($this->argumentRequired != self::ARGUMENT_NONE && ! is_null($value)) {
@@ -85,9 +89,40 @@ class OptionParameter {
 		return $this->getoptFormat;
 	}
 
-	public function help($pad = 16, $gutter = 2, $width = 76) {
+	protected function getWidth() {
+		static $cached = null;
+
+		if (! is_null($cached)) {
+			return $cached;
+		}
+
+		$output = `tput cols`;
+
+		if ($output > 0) {
+			$cached = $output * 1;
+			return $cached;
+		}
+
+		$output = `stty -a`;
+		
+		if (preg_match('/ columns ([0-9]+)/', $output, $matches)) {
+			if ($matches[1] > 0) {
+				$cached = $matches[1] * 1;
+				return $cached;
+			}
+		}
+
+		$cached = 80;
+		return $cached;
+	}
+
+	public function help($pad = 16, $gutter = 2, $width = null) {
 		$options = array();
 		$buffer = '';
+
+		if (is_null($width)) {
+			$width = $this->getWidth() - $gutter;
+		}
 
 		if (is_null($this->optionHelp)) {
 			return '';
@@ -125,7 +160,7 @@ class OptionParameter {
 
 		foreach ($this->optionLong as $o) {
 			if (substr($o, 0, strlen($arg)) == $arg) {
-				$hits[] = $o;
+				$hits[$o] = $this;
 			}
 		}
 
@@ -166,7 +201,7 @@ class OptionParameter {
 
 	public function validation($runthis) {
 		$this->validateCallback($runthis);
-		$this->action = $runthis;
+		$this->validationCallback = $runthis;
 		return $this;
 	}
 
@@ -185,7 +220,7 @@ class OptionParameter {
 			return $this->count();
 		}
 
-		return $this->values;
+		return $this->valuesParsed;
 	}
 
 	public function wrap($str, $pad, $width) {
@@ -215,8 +250,8 @@ class OptionParameter {
 					$line = substr($line, 0, $spacePos + 1);
 				}
 
-				$lines[] = rtrim($line);
 				$str = substr($str, strlen($line));
+				$lines[] = rtrim($line);
 			}
 
 			if (strlen($str)) {

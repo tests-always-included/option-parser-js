@@ -3,30 +3,30 @@
 	"scanAll": true,
 	"options": [
 		{
-			"short": "f",
-			"long": "flag",
+			"shortOptions": "f",
+			"longOptions": "flag",
 			"help": "Test option",
 			"name": null
 		},
 		{
-			"short": "r",
-			"long": null,
+			"shortOptions": "r",
+			"longOptions": null,
 			"help": "Second test option",
 			"argumentName": "ARG",
 			"argumentRequired": true,
 			"name": null
 		},
 		{
-			"short": null,
-			"long": "opt",
+			"shortOptions": null,
+			"longOptions": "opt",
 			"help": "Third test option",
 			"argumentName": "Op",
 			"argumentRequired": false,
 			"name": null
 		},
 		{
-			"short": "d",
-			"long": "hidden-option",
+			"shortOptions": "d",
+			"longOptions": "hidden-option",
 			"help": null,
 			"name": "hidden"
 		}

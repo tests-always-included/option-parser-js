@@ -35,7 +35,7 @@ function runScenario($scenarioFile) {
 	}
 
 	$parser = makeParser($json);
-	$helpText = $parser->help();
+	$helpText = $parser->help(16, 2, 78);
 	$helpText = rtrim($helpText);
 	$helpText = explode("\n", $helpText);
 	$failures += assertSame($json->help, $helpText, "Help text difference for scenario $scenarioFile");
@@ -49,7 +49,7 @@ function makeParser($json) {
 	$parser->scanAll($json->scanAll);
 	
 	foreach ($json->options as $opt) {
-		$param = $parser->addOption($opt->short, $opt->long, $opt->help, $opt->name);
+		$param = $parser->addOption($opt->shortOptions, $opt->longOptions, $opt->help, $opt->name);
 		if (! empty($opt->argumentName)) {
 			$param->argument($opt->argumentName, $opt->argumentRequired);
 		}
