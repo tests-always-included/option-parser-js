@@ -124,7 +124,7 @@ parameter "dddd" to help contrast against the previous code.
         $debugLevel = $debugOption->value();
     }
 
-GetOpt
+Getopt
 ------
 
 Lastly, PHP has a unique format for handling command-line arguments using
