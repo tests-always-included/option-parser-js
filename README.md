@@ -22,8 +22,8 @@ Features
 Languages Supported
 ===================
 
-* PHP http://php.net
-* JavaScript via node.js http://nodejs.org/
+* PHP - http://php.net
+* JavaScript via node.js - http://nodejs.org/
 
 How to use
 ==========
