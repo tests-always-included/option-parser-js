@@ -4,7 +4,8 @@ people to use.  Features of many other implementations have been integrated in
 order to provide significant flexibility and to make it easier to use.
 
 Examples in this guide are written in PHP, but should be trivial for one to
-port to JavaScript.
+port to JavaScript.  There are also sample parsers in the [examples] directory
+in the repository.
 
 Features
 ========
@@ -91,7 +92,7 @@ debug level, but can default to 5 if you don't set one explicitly.
 
     $debugOption = $parser->addOption(null, 'debug',
          'Sets the debug level; if set, default is 5')
-        ->argument('Level', false);  // "false" makes this optional
+        ->argument('Level', false);  // See note below
 
     // Don't forget to set up the other options here
 
@@ -101,6 +102,15 @@ debug level, but can default to 5 if you don't set one explicitly.
     if ($debugOption->count()) {
         $debugLevel = $debugOption->value();
     }
+
+The first parameter to OptionParameter->argument() is the name of the
+parameter, as seen in the generated help message.  It doesn't affect the
+execution of the parser in any other way.  The second parameter, false,
+makes the argument optional.
+
+$debugOption->count() returns the number of times the argument was specified.
+$debugOption->value() returns the last value passed to the parameter.  For
+detailed information, check out the documentation for [OptionParameter].
 
 Named Parameters
 ----------------
@@ -113,15 +123,14 @@ parameter "dddd" to help contrast against the previous code.
 
     $parser->addOption(null, 'debug',
          'Sets the debug level, default is 5', 'dddd')
-        ->argument('Level', false);  // "false" makes this optional
+        ->argument('Level', false);
 
     // Don't forget to set up the other options here
 
     $parser->parse();
     
-    // Now use the $debugOption object to set the debug value
     if ($parser->dddd->count()) {
-        $debugLevel = $debugOption->value();
+        $debugLevel = $parser->dddd->value();
     }
 
 Getopt
@@ -156,8 +165,15 @@ $unparsed would be an array that only contains "-d".
 More Reading
 ============
 
-You can check out OptionParser.md and OptionParameter.md for more documentation
-regarding how those two classes work.
+You can read the documentation for the individual classes to understand more
+about what they do and how they work.
 
-Reference implementations are available in the examples/ directory in the
+* [OptionParameter]
+* [OptionParser]
+
+Reference implementations are available in the [examples] directory in the
 repository.
+
+[OptionParameter]: https://github.com/fidian/OptionParser/blob/master/OptionParameter.md
+[OptionParser]: https://github.com/fidian/OptionParser/blob/master/OptionParser.md
+[examples]: https://github.com/fidian/OptionParser/tree/master/examples/
