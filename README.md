@@ -3,9 +3,9 @@ how getopt works.  An effort is made to make it POSIX compliant and easy for
 people to use.  Features of many other implementations have been integrated in
 order to provide significant flexibility and to make it easier to use.
 
-Examples in this guide are written in PHP, but should be trivial for one to
-port to JavaScript.  There are also sample parsers in the [examples] directory
-in the repository.
+Examples in this guide are written in PHP, but it is easy to translate that
+across to JavaScript.  The syntax is nearly identical.  There are also sample
+parsers in the [examples] directory in the repository for both languages.
 
 Features
 ========
@@ -143,11 +143,11 @@ value.  This should make it easier to plug this parser into your code and
 benefit from the better option handling without retooling anything after the
 call to getopt() that you'd normally make.
 
-	// Set up options and then call parse()
-	$parser->parse();
+    // Set up options and then call parse()
+    $parser->parse();
 
     // Get back an array of options like PHP's getopt()
-	$options = $parser->getopt();
+    $options = $parser->getopt();
 
 Unparsed Options
 ================
