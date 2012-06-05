@@ -1,0 +1,26 @@
+{
+	"name": "fidian/OptionParser",
+	"type": "library",
+	"description": "Command-line option parser similar to getopt",
+	"keywords": [
+		"command-line",
+		"command",
+		"line",
+		"option",
+		"parser",
+		"flag",
+		"flags",
+		"getopt"
+	],
+	"homepage": "https://github.com/fidian/OptionParser/",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Tyler Akins",
+			"email": "fidian@rumkin.com"
+		}
+	],
+	"require": {
+		"php": ">=5.3"
+	}
+}
