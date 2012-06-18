@@ -1,13 +1,13 @@
 {
 	"name": "OptionParser",
-	"version": "0.0.0",
+	"version": "0.1.0",
 	"author": "Tyler Akins <fidian@rumkin.com>",
 	"description": "Command-line option parser similar to getopt",
 	"homepage": "https://github.com/fidian/OptionParser/",
 	"contributors": [
 		"Tyler Akins <fidian@rumkin.com> (http://rumkin.com/)"
 	],
-	"main": "./lib/nodejs/OptionParser.js",
+	"main": "./nodejs/OptionParser.js",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/fidian/OptionParser.git"
