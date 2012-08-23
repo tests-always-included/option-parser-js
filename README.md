@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/fidian/OptionParser.png)](http://travis-ci.org/fidian/OptionParser)
 OptionParser is a library to help you parse command-line options, similar to
 how getopt works.  An effort is made to make it POSIX compliant and easy for
 people to use.  Features of many other implementations have been integrated in
