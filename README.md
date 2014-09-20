@@ -7,7 +7,10 @@ Examples in this guide are written in PHP, but it is easy to translate that
 across to JavaScript.  The syntax is nearly identical.  There are also sample
 parsers in the [examples] directory in the repository for both languages.
 
-Travis CI [![build status](https://secure.travis-ci.org/tests-always-included/option-parser.png)](http://travis-ci.org/tests-always-included/option-parser)
+[![NPM][npm-image]][NPM]
+[![Build Status][travis-image]][Travis CI]
+[![Dependencies][dependencies-image]][Dependencies]
+[![Dev Dependencies][devdependencies-image]][Dev Dependencies]
 
 Features
 ========
@@ -176,6 +179,14 @@ about what they do and how they work.
 Reference implementations are available in the [examples] directory in the
 repository.
 
+[Dependencies]: https://david-dm.org/tests-always-included/complexion-js
+[dependencies-image]: https://david-dm.org/tests-always-included/complexion-js.png
+[Dev Dependencies]: https://david-dm.org/tests-always-included/complexion-js#info=devDependencies
+[devdependencies-image]: https://david-dm.org/tests-always-included/complexion-js/dev-status.png
+[examples]: examples/
+[NPM]: https://npmjs.org/package/complexion-js
+[npm-image]: https://nodei.co/npm/complexion-js.png?downloads=true&stars=true
 [OptionParameter]: option-parameter.md
 [OptionParser]: option-parser.md
-[examples]: examples/
+[Travis CI]: http://travis-ci.org/tests-always-included/complexion-js
+[travis-image]: https://secure.travis-ci.org/tests-always-included/complexion-js.png
