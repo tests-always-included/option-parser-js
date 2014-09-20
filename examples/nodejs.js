@@ -2,7 +2,7 @@
 
 'use strict';
 
-var OP = require('../nodejs/OptionParser');
+var OP = require('../');
 var parser = new OP.OptionParser();
 var requiredValue = null;
 

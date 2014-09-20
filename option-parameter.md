@@ -1,3 +1,6 @@
+OptionParameter
+===============
+
 An instance of the OptionParameter class represents a single option.  It knows
 about all of the ways that option can get specified, if it takes a value, and
 what values were passed in from the command-line.

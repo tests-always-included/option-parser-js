@@ -7,6 +7,8 @@ Examples in this guide are written in PHP, but it is easy to translate that
 across to JavaScript.  The syntax is nearly identical.  There are also sample
 parsers in the [examples] directory in the repository for both languages.
 
+Travis CI [![build status](https://secure.travis-ci.org/tests-always-included/option-parser.png)](http://travis-ci.org/tests-always-included/option-parser)
+
 Features
 ========
 * -x (short options)
@@ -174,6 +176,6 @@ about what they do and how they work.
 Reference implementations are available in the [examples] directory in the
 repository.
 
-[OptionParameter]: https://github.com/fidian/OptionParser/blob/master/OptionParameter.md
-[OptionParser]: https://github.com/fidian/OptionParser/blob/master/OptionParser.md
-[examples]: https://github.com/fidian/OptionParser/tree/master/examples/
+[OptionParameter]: option-parameter.md
+[OptionParser]: option-parser.md
+[examples]: examples/

@@ -1,16 +1,16 @@
 {
-	"name": "OptionParser",
-	"version": "0.1.0",
+	"name": "option-parser",
+	"version": "0.1.2",
 	"author": "Tyler Akins <fidian@rumkin.com>",
 	"description": "Command-line option parser similar to getopt",
-	"homepage": "https://github.com/fidian/OptionParser/",
+	"homepage": "https://github.com/tests-always-included/option-parser/",
 	"contributors": [
 		"Tyler Akins <fidian@rumkin.com> (http://rumkin.com/)"
 	],
 	"main": "./nodejs/OptionParser.js",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/fidian/OptionParser.git"
+		"url": "https://github.com/tests-always-included/option-parser.git"
 	},
 	"keywords": [
 		"command-line",
@@ -26,7 +26,10 @@
 	"devDependencies": {},
 	"license": "MIT",
 	"engines": {
-		"node": "~0.6",
+		"node": ">=0.6",
 		"npm": "~1"
+	},
+	"scripts": {
+		"test": "cd tests && node nodejs.js"
 	}
 }

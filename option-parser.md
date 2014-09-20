@@ -1,3 +1,6 @@
+OptionParser
+============
+
 The OptionParser object handles keeping track of OptionParameters and parsing
 of options.
 

@@ -1,5 +1,5 @@
 {
-	"name": "fidian/OptionParser",
+	"name": "tests-always-included/option-parser",
 	"type": "library",
 	"description": "Command-line option parser similar to getopt",
 	"keywords": [
@@ -12,7 +12,7 @@
 		"flags",
 		"getopt"
 	],
-	"homepage": "https://github.com/fidian/OptionParser/",
+	"homepage": "https://github.com/tests-always-included/option-parser/",
 	"license": "MIT",
 	"authors": [
 		{
