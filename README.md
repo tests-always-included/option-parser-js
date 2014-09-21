@@ -157,14 +157,14 @@ You can read the documentation for the individual classes to understand more abo
 
 Reference implementations are available in the [examples] directory in the repository.
 
-[Dependencies]: https://david-dm.org/tests-always-included/complexion-js
-[dependencies-image]: https://david-dm.org/tests-always-included/complexion-js.png
-[Dev Dependencies]: https://david-dm.org/tests-always-included/complexion-js#info=devDependencies
-[devdependencies-image]: https://david-dm.org/tests-always-included/complexion-js/dev-status.png
+[Dependencies]: https://david-dm.org/tests-always-included/option-parser-js
+[dependencies-image]: https://david-dm.org/tests-always-included/option-parser-js.png
+[Dev Dependencies]: https://david-dm.org/tests-always-included/option-parser-js#info=devDependencies
+[devdependencies-image]: https://david-dm.org/tests-always-included/option-parser-js/dev-status.png
 [examples]: examples/
-[NPM]: https://npmjs.org/package/complexion-js
-[npm-image]: https://nodei.co/npm/complexion-js.png?downloads=true&stars=true
+[NPM]: https://npmjs.org/package/option-parser-js
+[npm-image]: https://nodei.co/npm/option-parser-js.png?downloads=true&stars=true
 [OptionParameter]: option-parameter.md
 [OptionParser]: option-parser.md
-[Travis CI]: http://travis-ci.org/tests-always-included/complexion-js
-[travis-image]: https://secure.travis-ci.org/tests-always-included/complexion-js.png
+[Travis CI]: http://travis-ci.org/tests-always-included/option-parser-js
+[travis-image]: https://secure.travis-ci.org/tests-always-included/option-parser-js.png
