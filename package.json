@@ -30,6 +30,6 @@
 		"npm": "~1"
 	},
 	"scripts": {
-		"test": "cd tests && node nodejs.js"
+		"test": "test/run-tests"
 	}
 }
