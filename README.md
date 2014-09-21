@@ -162,8 +162,8 @@ Reference implementations are available in the [examples] directory in the repos
 [Dev Dependencies]: https://david-dm.org/tests-always-included/option-parser-js#info=devDependencies
 [devdependencies-image]: https://david-dm.org/tests-always-included/option-parser-js/dev-status.png
 [examples]: examples/
-[NPM]: https://npmjs.org/package/option-parser-js
-[npm-image]: https://nodei.co/npm/option-parser-js.png?downloads=true&stars=true
+[NPM]: https://npmjs.org/package/option-parser
+[npm-image]: https://nodei.co/npm/option-parser.png?downloads=true&stars=true
 [OptionParameter]: option-parameter.md
 [OptionParser]: option-parser.md
 [Travis CI]: http://travis-ci.org/tests-always-included/option-parser-js
