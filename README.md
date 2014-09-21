@@ -157,6 +157,23 @@ You can read the documentation for the individual classes to understand more abo
 
 Reference implementations are available in the [examples] directory in the repository.
 
+
+Development
+-----------
+
+I would happily accept patches and suggestions.
+
+Tests are *always* included.  To get them running on your system, just make sure the submodules are checked out for the repository.  If you don't have a `test/` folder then run this command:
+
+    git submodule update --init
+
+From there you can run the tests.  Start in the root of this repository and run this command.
+
+    test/run-tests
+
+(Using `npm test` also works well.)
+
+
 [Dependencies]: https://david-dm.org/tests-always-included/option-parser-js
 [dependencies-image]: https://david-dm.org/tests-always-included/option-parser-js.png
 [Dev Dependencies]: https://david-dm.org/tests-always-included/option-parser-js#info=devDependencies
