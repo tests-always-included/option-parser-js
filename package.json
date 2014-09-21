@@ -7,7 +7,7 @@
 	"contributors": [
 		"Tyler Akins <fidian@rumkin.com> (http://rumkin.com/)"
 	],
-	"main": "./nodejs/OptionParser.js",
+	"main": "./lib/option-parser.js",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/tests-always-included/option-parser.git"

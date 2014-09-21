@@ -1,8 +1,0 @@
-#!/bin/bash
-
-echo "Node:"
-node nodejs.js
-
-echo ""
-echo "PHP:"
-php php.php
