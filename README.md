@@ -1,4 +1,4 @@
-'OptionParser'
+`OptionParser`
 ==============
 
 `OptionParser` is a library to help you parse command-line options, similar to how `getopt` works.  An effort is made to make it POSIX compliant and easy for people to use.  Features of many other implementations have been integrated in order to provide significant flexibility and to make it easier to use.
