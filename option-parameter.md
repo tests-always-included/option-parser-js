@@ -75,8 +75,7 @@ Returns a string describing this option and how to invoke it.
 `matchAutocomplete(arg)`
 ------------------------
 
-Returns an array of options that might match if the user just didn't finish the
-entire long option.  for instance, the `arg` of "lo" would match "--long".
+Returns an array of options that might match if the user just didn't finish the entire long option.  For instance, the `arg` of "lo" would match "--long".
 
 This is only intended to be called from `OptionParser` during long option autocompletion.
 

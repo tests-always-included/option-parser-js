@@ -1,5 +1,5 @@
-`OptionParser`
-==============
+`OptionParser` - JavaScript Version
+===================================
 
 `OptionParser` is a library to help you parse command-line options, similar to how `getopt` works.  An effort is made to make it POSIX compliant and easy for people to use.  Features of many other implementations have been integrated in order to provide significant flexibility and to make it easier to use.
 
@@ -35,8 +35,7 @@ First, create the parser object:
     OptionParser = require('option-parser');
     parser = new OptionParser();
 
-Next, you add some options.  I'll jump right in and add the standard "help"
-option, triggered with either "-h" or "--help".
+Next, you add some options.  I'll jump right in and add the standard "help" option, triggered with either "-h" or "--help".
 
     parser.addOption('h', 'help', 'Display this help message')
         .action(parser.helpAction());
