@@ -5,10 +5,10 @@
 
 There is a sample parser in the [examples] directory.
 
-[![NPM][npm-image]][NPM]
-[![Build Status][travis-image]][Travis CI]
-[![Dependencies][dependencies-image]][Dependencies]
-[![Dev Dependencies][devdependencies-image]][Dev Dependencies]
+[![npm version][npm-badge]][npm-link]
+[![Build Status][travis-badge]][travis-link]
+[![Dependencies][dependencies-badge]][dependencies-link]
+[![Dev Dependencies][devdependencies-badge]][devdependencies-link]
 
 
 Features
@@ -173,14 +173,15 @@ From there you can run the tests.  Start in the root of this repository and run 
 (Using `npm test` also works well.)
 
 
-[Dependencies]: https://david-dm.org/tests-always-included/option-parser-js
-[dependencies-image]: https://david-dm.org/tests-always-included/option-parser-js.png
-[Dev Dependencies]: https://david-dm.org/tests-always-included/option-parser-js#info=devDependencies
-[devdependencies-image]: https://david-dm.org/tests-always-included/option-parser-js/dev-status.png
+[dependencies-badge]: https://img.shields.io/david/tests-always-included/option-parser-js.svg
+[dependencies-link]: https://david-dm.org/tests-always-included/option-parser-js
+[devdependencies-badge]: https://img.shields.io/david/dev/tests-always-included/option-parser-js.svg
+[devdependencies-link]: https://david-dm.org/tests-always-included/option-parser-js#info=devDependencies
 [examples]: examples/
-[NPM]: https://npmjs.org/package/option-parser
-[npm-image]: https://nodei.co/npm/option-parser.png?downloads=true&stars=true
+[LICENSE]: LICENSE.md
+[npm-badge]: https://img.shields.io/npm/v/option-parser.svg
+[npm-link]: https://npmjs.org/package/option-parser
 [OptionParameter]: option-parameter.md
 [OptionParser]: option-parser.md
-[Travis CI]: http://travis-ci.org/tests-always-included/option-parser-js
-[travis-image]: https://secure.travis-ci.org/tests-always-included/option-parser-js.png
+[travis-badge]: https://img.shields.io/travis/tests-always-included/option-parser-js/master.svg
+[travis-link]: http://travis-ci.org/tests-always-included/option-parser-js
