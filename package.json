@@ -1,6 +1,6 @@
 {
 	"name": "option-parser",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"author": "Tyler Akins <fidian@rumkin.com>",
 	"description": "Command-line option parser similar to getopt",
 	"homepage": "https://github.com/tests-always-included/option-parser/",
@@ -22,13 +22,7 @@
 		"flags",
 		"getopt"
 	],
-	"dependencies": {},
-	"devDependencies": {},
 	"license": "MIT",
-	"engines": {
-		"node": ">=0.6",
-		"npm": "~1"
-	},
 	"scripts": {
 		"test": "test/run-tests"
 	}
